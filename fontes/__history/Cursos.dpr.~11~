@@ -1,0 +1,22 @@
+program Cursos;
+
+uses
+  Vcl.Forms,
+  sysutils,
+  UCursos in 'UCursos.pas' {frmPrincipal},
+  Uacesso in 'Uacesso.pas' {frmLogin};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  frmAcesso:= TfrmAcesso.Create(nil);
+  if (frmAcesso.ShowModal = 1) then
+  begin
+    Application.MainFormOnTaskbar := True;
+    Application.CreateForm(TfrmPrincipal, frmPrincipal);
+    FreeAndNil(frmAcesso);//liberando completamente da memória o formulário frmAcesso.
+    Application.Run;
+  end;
+
+end.

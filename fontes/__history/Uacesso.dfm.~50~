@@ -1,0 +1,145 @@
+object frmAcesso: TfrmAcesso
+  Left = 0
+  Top = 0
+  Caption = 'Acesso'
+  ClientHeight = 280
+  ClientWidth = 355
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PopupMenu = PopupMenu1
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object lblUsuario: TLabel
+    Left = 43
+    Top = 56
+    Width = 40
+    Height = 13
+    Caption = 'Usu'#225'rio:'
+  end
+  object lblSenha: TLabel
+    Left = 48
+    Top = 96
+    Width = 34
+    Height = 13
+    Caption = 'Senha:'
+  end
+  object editUsuario: TEdit
+    Left = 85
+    Top = 53
+    Width = 121
+    Height = 21
+    TabOrder = 0
+  end
+  object editSenha: TEdit
+    Left = 85
+    Top = 93
+    Width = 121
+    Height = 21
+    PasswordChar = '*'
+    TabOrder = 1
+  end
+  object btnAcesso: TButton
+    Left = 112
+    Top = 136
+    Width = 75
+    Height = 25
+    Caption = 'Acesso'
+    ModalResult = 1
+    TabOrder = 2
+    OnClick = btnAcessoClick
+  end
+  object BANCO_DADOS: TIBDatabase
+    Connected = True
+    DatabaseName = 'salt-PC:C:\Treinamento\NeriDelphiAvancado\dados\matriz.fdb'
+    Params.Strings = (
+      'user_name=SYSDBA'
+      'password=masterkey')
+    LoginPrompt = False
+    ServerType = 'IBServer'
+    Left = 24
+    Top = 8
+  end
+  object IBTransaction1: TIBTransaction
+    Active = True
+    DefaultDatabase = BANCO_DADOS
+    DefaultAction = TACommitRetaining
+    Params.Strings = (
+      'read_committed'
+      'rec_version'
+      'nowait')
+    Left = 104
+    Top = 8
+  end
+  object dsLogin: TDataSource
+    DataSet = ibqueryLogin
+    Left = 224
+    Top = 8
+  end
+  object ibqueryLogin: TIBQuery
+    Database = BANCO_DADOS
+    Transaction = IBTransaction1
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select *  from LOGIN'
+      'where LOG_NOME = :nome and LOG_SENHA = :senha')
+    Left = 168
+    Top = 8
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'nome'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'senha'
+        ParamType = ptUnknown
+      end>
+    object ibqueryLoginLOG_CODIGO: TIntegerField
+      FieldName = 'LOG_CODIGO'
+      Origin = '"LOGIN"."LOG_CODIGO"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object ibqueryLoginLOG_NOME: TIBStringField
+      FieldName = 'LOG_NOME'
+      Origin = '"LOGIN"."LOG_NOME"'
+      Required = True
+      Size = 10
+    end
+    object ibqueryLoginLOG_SENHA: TIBStringField
+      FieldName = 'LOG_SENHA'
+      Origin = '"LOGIN"."LOG_SENHA"'
+      Required = True
+      Size = 10
+    end
+    object ibqueryLoginLOG_NIVEL: TIntegerField
+      FieldName = 'LOG_NIVEL'
+      Origin = '"LOGIN"."LOG_NIVEL"'
+      Required = True
+    end
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 264
+    Top = 8
+    object NovobancodeDados1: TMenuItem
+      Caption = 'Novo banco de Dados'
+      OnClick = NovobancodeDados1Click
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Ctl3D = False
+    InitialDir = 'salt-PC:C:\Treinamento\NeriDelphiAvancado\dados'
+    Left = 304
+    Top = 8
+  end
+end

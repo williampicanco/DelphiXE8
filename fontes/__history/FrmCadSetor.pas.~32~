@@ -1,0 +1,129 @@
+unit FrmCadSetor;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.DBCtrls, Data.DB,
+  Vcl.StdCtrls, Vcl.Mask, Vcl.Buttons, Vcl.Grids, Vcl.DBGrids;
+
+type
+  TUfrmCadSetor = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Label1: TLabel;
+    DataSource1: TDataSource;
+    Label2: TLabel;
+    DBEdit2: TDBEdit;
+    Label3: TLabel;
+    DBEdit3: TDBEdit;
+    DBNavigator1: TDBNavigator;
+    bbtSair: TBitBtn;
+    bbtIncluir: TBitBtn;
+    bbtEditar: TBitBtn;
+    bbtRemover: TBitBtn;
+    bbtCancelar: TBitBtn;
+    bbtConfirmar: TBitBtn;
+    DBText1: TDBText;
+    DBGrid1: TDBGrid;
+    bbtNovo: TBitBtn;
+    procedure TrataBotao;
+    procedure bbtCancelarClick(Sender: TObject);
+    procedure bbtConfirmarClick(Sender: TObject);
+    procedure bbtEditarClick(Sender: TObject);
+    procedure bbtIncluirClick(Sender: TObject);
+    procedure bbtRemoverClick(Sender: TObject);
+    procedure bbtSairClick(Sender: TObject);
+    procedure bbtNovoClick(Sender: TObject);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  UfrmCadSetor: TUfrmCadSetor;
+
+implementation
+ uses UFrmDmEmpresa;
+{$R *.dfm}
+
+
+procedure TUfrmCadSetor.bbtCancelarClick(Sender: TObject);
+begin
+  DataModule1.tbSetor.Cancel;
+  TrataBotao;
+end;
+
+procedure TUfrmCadSetor.bbtConfirmarClick(Sender: TObject);
+begin
+  DataModule1.tbSetor.Post;
+  TrataBotao;
+end;
+
+procedure TUfrmCadSetor.bbtEditarClick(Sender: TObject);
+begin
+  DataModule1.tbSetor.Edit;
+  TrataBotao;
+end;
+
+procedure TUfrmCadSetor.bbtIncluirClick(Sender: TObject);
+var ProxNum:Integer;
+begin
+  TrataBotao;
+  DataModule1.tbSetor.Last;
+  ProxNum := DataModule1.tbSetor.FieldByName('SET_SETOR_ID').AsInteger + 1;
+  DataModule1.tbSetor.Append;
+  DataModule1.tbSetor.FieldByName('SET_SETOR_ID').AsInteger := ProxNum;
+  TrataBotao;
+  DBEdit2.SetFocus;
+
+end;
+
+procedure TUfrmCadSetor.bbtRemoverClick(Sender: TObject);
+begin
+  if UFrmDmEmpresa.DataModule1.tbSetor.RecordCount <> 0 Then begin
+    if MessageDlg('Deseja excluir este registro?',mtConfirmation,[mbYes,mbNo],0) = mryes then
+      UFrmDmEmpresa.DataModule1.tbSetor.Delete
+End
+Else
+MessageDlg('Não há registro a ser excluído.',mtInformation,[mbok],0);
+end;
+
+procedure TUfrmCadSetor.bbtSairClick(Sender: TObject);
+begin
+  UfrmCadSetor.Close;
+end;
+
+procedure TUfrmCadSetor.bbtNovoClick(Sender: TObject);
+var ProxNum:Integer;
+begin
+
+end;
+
+{
+procedure TFrmCadSetor.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+if DMEmpresa.tbSetor.State IN [DSEDIT,DSINSERT] then
+if MessageDlg('Existem Dados Pendentes.'+ #13 + 'Deseja salvá-lo?',mtConfirmation, [mbYes,mbNo],0) = mryes then
+CanClose := False
+else begin
+DMEmpresa.tbSetor.Cancel;
+TrataBotao;
+CanClose := True;
+end;
+end;
+}
+
+procedure TUfrmCadSetor.TrataBotao;
+begin
+  bbtIncluir.Enabled := not bbtIncluir.Enabled;
+  BbtEditar.Enabled := not BbtEditar.Enabled;
+  BbtRemover.Enabled := not BbtRemover.Enabled;
+  BbtCancelar.Enabled := not BbtCancelar.Enabled;
+  BbtConfirmar.Enabled := not BbtConfirmar.Enabled;
+  BbtSair.Enabled := not BbtSair.Enabled;
+end;
+
+end.

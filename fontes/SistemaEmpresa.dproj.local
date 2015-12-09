@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2015/11/03 18:00:17.000.982,=C:\Users\salt\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015/11/03 19:39:18.000.930,=C:\Users\salt\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015/11/11 10:06:25.000.763,=C:\Users\salt\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015/11/11 10:09:16.000.226,C:\Treinamento\NeriDelphiAvancado\fontes\UCursos.pas=C:\Users\salt\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2015/11/11 10:09:16.000.226,C:\Treinamento\NeriDelphiAvancado\fontes\UCursos.dfm=C:\Users\salt\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2015/11/11 10:09:34.000.096,C:\Treinamento\NeriDelphiAvancado\fontes\Cursos.dproj=C:\Users\salt\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2015/11/11 10:15:29.000.382,=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.pas</Transaction>
+    <Transaction>2015/11/11 10:20:16.000.623,=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.pas</Transaction>
+    <Transaction>2015/11/11 10:26:32.000.779,C:\Treinamento\NeriDelphiAvancado\fontes\Uacesso.dfm=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.dfm</Transaction>
+    <Transaction>2015/11/11 10:26:32.000.779,C:\Treinamento\NeriDelphiAvancado\fontes\Uacesso.pas=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.pas</Transaction>
+    <Transaction>2015/11/20 10:47:59.000.530,=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.pas</Transaction>
+    <Transaction>2015/11/20 10:48:41.000.286,C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.pas=C:\Treinamento\NeriDelphiAvancado\dados\UFrmDmEmpresa.pas</Transaction>
+    <Transaction>2015/11/20 10:48:41.000.286,C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.dfm=C:\Treinamento\NeriDelphiAvancado\dados\UFrmDmEmpresa.dfm</Transaction>
+    <Transaction>2015/11/23 09:13:00.000.405,=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.pas</Transaction>
+    <Transaction>2015/11/23 09:17:21.000.531,C:\Treinamento\NeriDelphiAvancado\fontes\FrmCadSetor.dfm=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.dfm</Transaction>
+    <Transaction>2015/11/23 09:17:21.000.531,C:\Treinamento\NeriDelphiAvancado\fontes\FrmCadSetor.pas=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.pas</Transaction>
+    <Transaction>2015/11/23 10:20:44.000.242,C:\Treinamento\NeriDelphiAvancado\fontes\SistemaEmpresa.dproj=C:\Treinamento\NeriDelphiAvancado\fontes\Cursos.dproj</Transaction>
+    <Transaction>2015/11/25 08:55:07.000.437,=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.pas</Transaction>
+    <Transaction>2015/11/25 08:55:50.000.593,C:\Treinamento\NeriDelphiAvancado\fontes\UFrmCadFuncionario.pas=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.pas</Transaction>
+    <Transaction>2015/11/25 08:55:50.000.593,C:\Treinamento\NeriDelphiAvancado\fontes\UFrmCadFuncionario.dfm=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.dfm</Transaction>
+    <Transaction>2015/11/25 08:59:09.000.861,C:\Treinamento\NeriDelphiAvancado\fontes\UFrmCadSetor.pas=C:\Treinamento\NeriDelphiAvancado\fontes\FrmCadSetor.pas</Transaction>
+    <Transaction>2015/11/25 08:59:09.000.861,C:\Treinamento\NeriDelphiAvancado\fontes\UFrmCadSetor.dfm=C:\Treinamento\NeriDelphiAvancado\fontes\FrmCadSetor.dfm</Transaction>
+    <Transaction>2015/11/25 08:59:51.000.031,=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.pas</Transaction>
+    <Transaction>2015/11/25 09:00:43.000.234,C:\Treinamento\NeriDelphiAvancado\fontes\UFrmCadDependente.dfm=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.dfm</Transaction>
+    <Transaction>2015/11/25 09:00:43.000.233,C:\Treinamento\NeriDelphiAvancado\fontes\UFrmCadDependente.pas=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.pas</Transaction>
+    <Transaction>2015/11/27 11:27:30.000.124,=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.pas</Transaction>
+    <Transaction>2015/11/27 11:28:11.000.179,C:\Treinamento\NeriDelphiAvancado\fontes\UfrmConFuncionario.dfm=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.dfm</Transaction>
+    <Transaction>2015/11/27 11:28:11.000.147,C:\Treinamento\NeriDelphiAvancado\fontes\UfrmConFuncionario.pas=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.pas</Transaction>
+    <Transaction>2015/12/08 16:39:52.431,=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.pas</Transaction>
+    <Transaction>2015/12/08 16:41:13.171,C:\Treinamento\NeriDelphiAvancado\fontes\UfrmConSetFun.pas=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.pas</Transaction>
+    <Transaction>2015/12/08 16:41:13.171,C:\Treinamento\NeriDelphiAvancado\fontes\UfrmConSetFun.dfm=C:\Treinamento\NeriDelphiAvancado\fontes\Unit1.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

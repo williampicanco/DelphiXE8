@@ -1,0 +1,119 @@
+unit UFrmCadFuncionario;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.DBCtrls, Data.DB,
+  Vcl.StdCtrls, Vcl.Mask, Vcl.Buttons, Vcl.Imaging.pngimage, Vcl.Grids,
+  Vcl.DBGrids;
+
+type
+  TFrmCadFuncionario = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    DBEdit2: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBEdit7: TDBEdit;
+    DBEdit8: TDBEdit;
+    DBEdit9: TDBEdit;
+    Panel2: TPanel;
+    DataSource1: TDataSource;
+    DBNavigator1: TDBNavigator;
+    bbtSair: TBitBtn;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Panel3: TPanel;
+    bbtIncluir: TBitBtn;
+    bbtEditar: TBitBtn;
+    bbtRemover: TBitBtn;
+    bbtCancelar: TBitBtn;
+    bbtConfirmar: TBitBtn;
+    Image1: TImage;
+    grdFuncionario: TDBGrid;
+    DBText1: TDBText;
+    DBRadioGroup1: TDBRadioGroup;
+    procedure TrataBotao;
+    procedure bbtSairClick(Sender: TObject);
+    procedure bbtIncluirClick(Sender: TObject);
+    procedure bbtEditarClick(Sender: TObject);
+    procedure bbtRemoverClick(Sender: TObject);
+    procedure bbtCancelarClick(Sender: TObject);
+    procedure bbtConfirmarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCadFuncionario: TFrmCadFuncionario;
+
+implementation
+ uses UFrmDmEmpresa;
+{$R *.dfm}
+
+procedure TFrmCadFuncionario.bbtCancelarClick(Sender: TObject);
+begin
+  DataModule1.tbFuncionario.Cancel;
+  TrataBotao;
+end;
+
+procedure TFrmCadFuncionario.bbtConfirmarClick(Sender: TObject);
+begin
+  DataModule1.tbFuncionario.Post;
+  TrataBotao;
+end;
+
+procedure TFrmCadFuncionario.bbtEditarClick(Sender: TObject);
+begin
+  DataModule1.tbFuncionario.Edit;
+  TrataBotao;
+end;
+
+procedure TFrmCadFuncionario.bbtIncluirClick(Sender: TObject);
+var ProxNum:Integer;
+begin
+  TrataBotao;
+  DataModule1.tbFuncionario.Last;
+  ProxNum := DataModule1.tbFuncionario.FieldByName('FUN_MATRICULA').AsInteger + 1;
+  DataModule1.tbFuncionario.Append;
+  DataModule1.tbFuncionario.FieldByName('FUN_MATRICULA').AsInteger := ProxNum;
+  DBEdit2.SetFocus;
+end;
+
+procedure TFrmCadFuncionario.bbtRemoverClick(Sender: TObject);
+begin
+ if UFrmDmEmpresa.DataModule1.tbFuncionario.RecordCount <> 0 Then begin
+    if MessageDlg('Deseja excluir este registro?',mtConfirmation,[mbYes,mbNo],0) = mryes then
+      UFrmDmEmpresa.DataModule1.tbFuncionario.Delete
+End
+Else
+MessageDlg('Não há registro a ser excluído.',mtInformation,[mbok],0);
+end;
+
+procedure TFrmCadFuncionario.bbtSairClick(Sender: TObject);
+begin
+  FrmCadFuncionario.Close;
+end;
+
+procedure TFrmCadFuncionario.TrataBotao;
+begin
+ bbtIncluir.Enabled := not bbtIncluir.Enabled;
+  BbtEditar.Enabled := not BbtEditar.Enabled;
+  BbtRemover.Enabled := not BbtRemover.Enabled;
+  BbtCancelar.Enabled := not BbtCancelar.Enabled;
+  BbtConfirmar.Enabled := True;  //:= not BbtConfirmar.Enabled;
+  BbtSair.Enabled := not BbtSair.Enabled;
+end;
+
+end.

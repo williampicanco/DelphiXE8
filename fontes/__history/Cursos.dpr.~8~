@@ -1,0 +1,20 @@
+program Cursos;
+
+uses
+  Vcl.Forms,
+  UCursos in 'UCursos.pas' {frmPrincipal},
+  Uacesso in 'Uacesso.pas' {frmLogin};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  frmAcesso:= TfrmAcesso.Create(nil);
+  if (frmAcesso.ShowModal = 1) then
+  begin
+      Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.Run;
+  end;
+
+end.

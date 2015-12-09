@@ -1,0 +1,92 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'frmSetConsFun'
+  ClientHeight = 258
+  ClientWidth = 397
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 397
+    Height = 73
+    Align = alTop
+    TabOrder = 0
+    ExplicitWidth = 515
+    object Label2: TLabel
+      Left = 8
+      Top = 13
+      Width = 86
+      Height = 13
+      Caption = 'Selecione o Setor '
+    end
+    object DBLookupComboBox1: TDBLookupComboBox
+      Left = 8
+      Top = 32
+      Width = 369
+      Height = 21
+      KeyField = 'SET_DESCRICAO'
+      ListField = 'SET_DESCRICAO'
+      ListSource = DataSource1
+      TabOrder = 0
+      OnClick = DBLookupComboBox1Click
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 73
+    Width = 397
+    Height = 185
+    Align = alClient
+    TabOrder = 1
+    ExplicitTop = 72
+    ExplicitWidth = 385
+    ExplicitHeight = 309
+    object DBGrid1: TDBGrid
+      Left = 1
+      Top = 1
+      Width = 395
+      Height = 183
+      Align = alClient
+      DataSource = DataSource2
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'Tahoma'
+      TitleFont.Style = []
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'FUN_MATRICULA'
+          Width = 93
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'FUN_NOME'
+          Width = 266
+          Visible = True
+        end>
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = DataModule1.tbSetor
+    Left = 432
+    Top = 8
+  end
+  object DataSource2: TDataSource
+    DataSet = DataModule1.tbFuncionario
+    Left = 480
+    Top = 8
+  end
+end

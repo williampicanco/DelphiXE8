@@ -1,0 +1,39 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 158
+  Width = 304
+  object Database1: TDatabase
+    AliasName = 'Empresa'
+    DatabaseName = 'base_de_dados_estoque'
+    SessionName = 'Default'
+    Left = 32
+    Top = 24
+  end
+  object tbCidade: TTable
+    Active = True
+    DatabaseName = 'dbEmpresa'
+    TableName = 'public.cidade'
+    Left = 32
+    Top = 88
+  end
+  object dsCidade: TDataSource
+    Left = 88
+    Top = 88
+  end
+  object DataSource2: TDataSource
+    Left = 168
+    Top = 88
+  end
+  object DataSource3: TDataSource
+    Left = 240
+    Top = 88
+  end
+  object Table2: TTable
+    Left = 168
+    Top = 40
+  end
+  object Table3: TTable
+    Left = 240
+    Top = 40
+  end
+end

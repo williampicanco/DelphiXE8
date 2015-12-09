@@ -1,0 +1,55 @@
+unit UFrmDmEmpresa;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, IBX.IBCustomDataSet, IBX.IBQuery,
+  IBX.IBDatabase, IBX.IBTable, Datasnap.Provider, frxClass, frxDBSet;
+
+type
+  TDataModule1 = class(TDataModule)
+    BANCO_DADOSII: TIBDatabase;
+    IBTransaction1: TIBTransaction;
+    ibquerySetor: TIBQuery;
+    dsSetor: TDataSource;
+    ibqueryFuncionario: TIBQuery;
+    ibqueryDependente: TIBQuery;
+    dsFuncionario: TDataSource;
+    dsDependente: TDataSource;
+    tbSetor: TIBTable;
+    tbSetorSET_SETOR_ID: TIntegerField;
+    tbSetorSET_DESCRICAO: TIBStringField;
+    tbSetorSET_LOCAL: TIBStringField;
+    tbFuncionario: TIBTable;
+    tbDependente: TIBTable;
+    tbFuncionarioFUN_MATRICULA: TIntegerField;
+    tbFuncionarioFUN_NOME: TIBStringField;
+    tbFuncionarioFUN_SEXO: TIBStringField;
+    tbFuncionarioFUN_ENDERECO: TIBStringField;
+    tbFuncionarioFUN_EMAIL: TIBStringField;
+    tbFuncionarioFUN_CIDADE: TIBStringField;
+    tbFuncionarioFUN_ESTADO: TIBStringField;
+    tbFuncionarioFUN_SALARIO: TFloatField;
+    tbFuncionarioFUN_SETOR_ID: TIntegerField;
+    QryConsFuncionario: TIBQuery;
+    dsqryConsFunc: TDataSetProvider;
+    frxReport1: TfrxReport;
+    DBDataset_func: TfrxDBDataset;
+    QryConsSetor: TIBQuery;
+    dsqryConsSetor: TDataSetProvider;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

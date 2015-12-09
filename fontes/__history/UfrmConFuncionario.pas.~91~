@@ -1,0 +1,107 @@
+unit UfrmConFuncionario;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Buttons,
+  Vcl.Grids, Vcl.DBGrids, Vcl.ExtCtrls, Vcl.Mask, Vcl.DBCtrls, Datasnap.DBClient,
+  Data.FMTBcd, Data.SqlExpr, IBX.IBCustomDataSet, IBX.IBTable, Data.Win.ADODB,
+  IBX.IBQuery;
+
+type
+  TfrmConsFuncionario = class(TForm)
+    Panel1: TPanel;
+    dbgPesquisa: TDBGrid;
+    bbtSair: TBitBtn;
+    dsPes: TDataSource;
+    bbtLocalizar: TBitBtn;
+    GroupBox1: TGroupBox;
+    edtNome: TEdit;
+    tbConFunc: TIBTable;
+    dbMatricula: TDBEdit;
+    dbSetor: TDBEdit;
+    dbNome: TDBEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    dsPesquisa: TDataSource;
+    Edit1: TEdit;
+    ClientDataSet1: TClientDataSet;
+
+    procedure bbtSairClick(Sender: TObject);
+    procedure bbtLocalizarClick(Sender: TObject);
+    procedure Edit1Change(Sender: TObject);
+    procedure LocalizaCliente;
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+
+  end;
+
+var
+  frmConsFuncionario: TfrmConsFuncionario;
+
+implementation
+ uses UFrmDmEmpresa;
+{$R *.dfm}
+
+
+procedure TfrmConsFuncionario.bbtLocalizarClick(Sender: TObject);
+Var strQry: string;
+begin
+
+    ClientDataSet1.Locate('FUN_NOME', Edit1.Text, [loPartialKey,loCaseInsensitive]);
+   //SQLTable1.FindField('fun_matricula');
+  //StrQry := 'Select * from FUNCIONARIO WHERE FUN_NOME LIKE (:nome) ORDER BY FUN_NOME';
+  //if edtCodigo.Text = '' then
+  //  StrQry := StrQry + ' WHERE FUN_MATRICULA = " ' + edtCodigo.Text + ' ";'
+  //else
+   // StrQry := StrQry + ' WHERE FUN_NOME LIKE " ' + edtCodigo.Text + '%" ;';
+
+   ShowMessage ('Clicando...!');
+  {DataModule1.qryConsFuncionario.Close;
+  DataModule1.qryConsFuncionario.SQL.Clear;
+  DataModule1.qryConsFuncionario.SQL.Add(StrQry);
+  DataModule1.qryConsFuncionario.Open;
+   }
+
+  {
+   ConsultaSQL := Format('SELECT * FROM %s ', ['FUNCIONARIO']);
+  WhereIsNull := Format('WHERE %s IS NULL' , ['FUN_MATRICULA']);
+  whereParametro := Format('WHERE UPPER(%S) LIKE :P', ['FUN_NOME']);
+
+  CDS.Close;
+  CDS.CommandText := ConsultaSQL + WhereIsNull;
+  CDS.Open;
+  dsPesquisa.DataSet := CDS;
+  if (LegendaGroupBox <> '') then
+      GroupBox1.Caption := 'Pesquisar Registros';
+  }
+end;
+
+procedure TfrmConsFuncionario.bbtSairClick(Sender: TObject);
+begin
+  frmConsFuncionario.Close;
+end;
+
+procedure TfrmConsFuncionario.Edit1Change(Sender: TObject);
+begin
+  DataModule1.tbFuncionario.Locate('FUN_NOME', Edit1.Text, [loPartialKey,loCaseInsensitive]) ;
+  //DataModule1.QryConsFuncionario.Locate('FUN_NOME', Edit1.Text, [loPartialKey,loCaseInsensitive]);
+  //ClientDataSet1.Locate('FUN_NOME', Edit1.Text, [loPartialKey,loCaseInsensitive]);
+end;
+
+procedure TfrmConsFuncionario.LocalizaCliente;
+begin
+  with ClientDataSet1 do
+  begin
+    Active:= false;
+    CommandText:= 'SELECT * FROM FUNCIONARIO';
+    Active:= true;
+  end;
+end;
+
+end.
